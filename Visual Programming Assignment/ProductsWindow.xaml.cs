@@ -64,14 +64,7 @@ namespace Visual_Programming_Assignment
             //List<string> productNames = new List<string>();
             List<Product> products = getAllProducts();
 
-            //foreach (var product in products)
-            // {
-            //    productNames.Add(product.Name);
-            //}
-
-            //this.productsListBox.ItemsSource = productNames;
             this.productsListBox.ItemsSource = products;
-
         }
 
         private void productsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -80,21 +73,24 @@ namespace Visual_Programming_Assignment
             this.updateButton.Content = kButtonSaveText;
 
             // Get the product from the event            
-            string productName = (string)this.productsListBox.SelectedItem;
-            
+            Product selectedItem = (Product)this.productsListBox.SelectedItem;
 
-            // Find the product from the DB
-            var result = from prod in db.Products
-                         where prod.Name == productName
-                         select prod;
+            if (selectedItem != null)
+            {
 
-            Product product = result.SingleOrDefault();
-            this.selectedProduct = product;
+                // Find the product from the DB
+                var result = from prod in db.Products
+                             where prod.Name == selectedItem.Name
+                             select prod;
 
-            // Display the product info
-            this.productNameTextbox.Text = product.Name;
-            this.productCategoryTextbox.Text = product.Category;
-            this.productPriceTextbox.Text = product.Price.ToString();
+                Product product = result.SingleOrDefault();
+                this.selectedProduct = product;
+
+                // Display the product info
+                this.productNameTextbox.Text = product.Name;
+                this.productCategoryTextbox.Text = product.Category;
+                this.productPriceTextbox.Text = product.Price.ToString();
+            }
         }
 
         private void removeButton_Click(object sender, RoutedEventArgs e)
@@ -109,7 +105,27 @@ namespace Visual_Programming_Assignment
                 if (selectionChoice == MessageBoxResult.Yes)
                 {
                     clearFields();
+                    // Look the product reference in DB model
+                    var result = from prod in db.Products
+                                 where prod.Name == this.selectedProduct.Name
+                                 select prod;
+
+                    Product productToBeRemoved = result.SingleOrDefault();
+
+                    // Revome item from DB
+                    db.Products.Remove(productToBeRemoved);
+
+                    // Save changes
+                    db.SaveChanges();
+
                     this.selectedProduct = null;
+
+                    // Refresh products ListBox
+                    setProducts();
+
+                    // Show success message
+                    MessageBox.Show("Product removed successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
 
                 }
             }
@@ -128,6 +144,9 @@ namespace Visual_Programming_Assignment
 
             // Update the button content
             this.updateButton.Content = kButtonCreateText;
+
+            // Remove the current selection
+            this.selectedProduct = null;
         }
 
         /// <summary>
@@ -154,8 +173,8 @@ namespace Visual_Programming_Assignment
                 productToBeUpdated.Category = this.productCategoryTextbox.Text;
                 productToBeUpdated.Price = int.Parse(this.productPriceTextbox.Text);
 
-                
-
+                // Display an updation message
+                MessageBox.Show("Product updated successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             // Create new product entry
             else
@@ -167,7 +186,14 @@ namespace Visual_Programming_Assignment
                     Price = int.Parse(this.productPriceTextbox.Text)
                 };
 
+                // Add product to model
+                db.Products.Add(newProduct);
 
+                // Clear the fields
+                clearFields();
+
+                // Display an insertion message
+                MessageBox.Show("Product added successfully", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             // Sync changes to DB
