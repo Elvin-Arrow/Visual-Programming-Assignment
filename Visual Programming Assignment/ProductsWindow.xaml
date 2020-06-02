@@ -6,8 +6,20 @@
         xmlns:local="clr-namespace:Visual_Programming_Assignment"
         mc:Ignorable="d"
         Title="ProductsWindow" Height="450" Width="800">
+
+
     <Grid>
-        <ListBox x:Name="productsListBox" HorizontalAlignment="Left" Height="256" Margin="22,87,0,0" VerticalAlignment="Top" Width="292" SelectionChanged="productsListBox_SelectionChanged"/>
+        <ListBox x:Name="productsListBox" HorizontalAlignment="Left" Height="256" Margin="22,87,0,0" VerticalAlignment="Top" Width="292" SelectionChanged="productsListBox_SelectionChanged" ItemContainerStyle="{DynamicResource ProductsStyle}" ItemTemplate="{DynamicResource ProductTemplate}">
+            <ListBox.Resources>
+                <DataTemplate x:Key="ProductTemplate">
+                    <Grid d:DesignWidth="300" d:DesignHeight="50">
+                        <Label x:Name="productName" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label x:Name="productCategory" Content="{Binding Category}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
+                        <Label x:Name="productPrice" Content="{Binding Path=Price, StringFormat='$: {0}'}" HorizontalAlignment="Stretch" Margin="250,0,1,0" VerticalAlignment="Top"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.Resources>
+        </ListBox>
         <Label Content="Products" HorizontalAlignment="Left" Margin="22,56,0,0" VerticalAlignment="Top"/>
         <Label Content="Product Details" HorizontalAlignment="Left" Margin="420,64,0,0" VerticalAlignment="Top"/>
         <Label Content="Product Name" HorizontalAlignment="Left" Margin="420,111,0,0" VerticalAlignment="Top"/>
@@ -16,7 +28,7 @@
         <TextBox x:Name="productCategoryTextbox" HorizontalAlignment="Left" Height="23" Margin="559,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="Product Price" HorizontalAlignment="Left" Margin="420,245,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="productPriceTextbox" HorizontalAlignment="Left" Height="23" Margin="559,247,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="updateButton" Content="Save Changes" HorizontalAlignment="Left" Margin="511,292,0,0" VerticalAlignment="Top" Width="92" Height="30"/>
+        <Button x:Name="updateButton" Content="Save Changes" HorizontalAlignment="Left" Margin="511,292,0,0" VerticalAlignment="Top" Width="92" Height="30" Click="updateButton_Click"/>
         <Button x:Name="addButton" HorizontalAlignment="Left" Margin="25,348,0,0" VerticalAlignment="Top" Width="45" Click="addButton_Click">
             <Image Source="C:\Users\mtbm9\Downloads\Pictures\add.png" Height="39" Width="47" RenderTransformOrigin="0.526,0.5"></Image>
         </Button>
