@@ -9,7 +9,7 @@
 
 
     <Grid>
-        <ListBox x:Name="productsListBox" HorizontalAlignment="Left" Height="256" Margin="22,87,0,0" VerticalAlignment="Top" Width="292" SelectionChanged="productsListBox_SelectionChanged" ItemContainerStyle="{DynamicResource ProductsStyle}" ItemTemplate="{DynamicResource ProductTemplate}">
+        <ListBox x:Name="productsListBox" HorizontalAlignment="Left" Height="256" Margin="22,87,0,0" VerticalAlignment="Top" Width="325" SelectionChanged="productsListBox_SelectionChanged" ItemTemplate="{DynamicResource ProductTemplate}">
             <ListBox.Resources>
                 <DataTemplate x:Key="ProductTemplate">
                     <Grid d:DesignWidth="300" d:DesignHeight="50">
