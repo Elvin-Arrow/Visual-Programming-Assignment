@@ -29,12 +29,10 @@
         <Label Content="Product Price" HorizontalAlignment="Left" Margin="420,245,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="productPriceTextbox" HorizontalAlignment="Left" Height="23" Margin="559,247,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="updateButton" Content="Save Changes" HorizontalAlignment="Left" Margin="511,292,0,0" VerticalAlignment="Top" Width="92" Height="30" Click="updateButton_Click"/>
-        <Button x:Name="addButton" HorizontalAlignment="Left" Margin="25,348,0,0" VerticalAlignment="Top" Width="45" Click="addButton_Click">
-            <Image Source="C:\Users\mtbm9\Downloads\Pictures\add.png" Height="39" Width="47" RenderTransformOrigin="0.526,0.5"></Image>
-        </Button>
-        <Button x:Name="removeButton" HorizontalAlignment="Left" Margin="75,348,0,0" VerticalAlignment="Top" Width="45" Click="removeButton_Click">
-            <Image Source="C:\Users\mtbm9\Downloads\Pictures\remove.png" Height="39" Width="47"></Image>
-        </Button>
+        <Button x:Name="addButton" Style="{StaticResource RoundedAddButtonTemplate}" Content="+" HorizontalAlignment="Left" Margin="25,348,0,0" VerticalAlignment="Top" Width="25" Click="addButton_Click" Height="25" FontSize="12" FontWeight="Bold"/>
+        <Button x:Name="removeButton" Style="{StaticResource RoundedRemoveButtonTemplate}" Content="x" HorizontalAlignment="Left" Margin="55,348,0,0" VerticalAlignment="Top" Width="25" Click="removeButton_Click" Height="25" FontSize="12" FontWeight="Bold"/>
+
+
 
     </Grid>
 </Window>
