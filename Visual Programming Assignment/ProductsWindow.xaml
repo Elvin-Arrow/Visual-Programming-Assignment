@@ -23,9 +23,10 @@
                 <ListBox.Resources>
                     <DataTemplate x:Key="ProductTemplate">
                         <Grid d:DesignWidth="300" d:DesignHeight="50">
-                            <Label x:Name="productName" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <Label x:Name="productCategory" Content="{Binding Category}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
-                            <Label x:Name="productPrice" Content="{Binding Path=Price, StringFormat='$: {0}'}" HorizontalAlignment="Stretch" Margin="250,0,1,0" VerticalAlignment="Top"/>
+                            <Label x:Name="productName" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                            <Label x:Name="productCategory" Content="{Binding Category}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0" FontStyle="Italic"/>
+                            <Label x:Name="priceTagLabel" Content="$" HorizontalAlignment="Stretch" Margin="240,0,1,0" VerticalAlignment="Top" FontSize="14"/>
+                            <Label x:Name="productPrice" Content="{Binding Price, StringFormat='$'}" HorizontalAlignment="Stretch" Margin="248,0,1,0" VerticalAlignment="Top" FontSize="14"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.Resources>
