@@ -12,10 +12,12 @@
         AllowsTransparency="True"
         WindowStyle="None"
         Background="Transparent">
+
     <Border BorderBrush="Gray" BorderThickness="0.1" CornerRadius="15">
         <Border.Background>
             <ImageBrush ImageSource="products_bg.png" />
         </Border.Background>
+
         <Grid>
             <ListBox x:Name="productsListBox" HorizontalAlignment="Left" Height="256" Margin="402,128,0,0" VerticalAlignment="Top" Width="310" SelectionChanged="productsListBox_SelectionChanged" ItemTemplate="{DynamicResource ProductTemplate}">
                 <ListBox.Resources>
@@ -31,17 +33,18 @@
             <Label Content="Products" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="402,80,0,0" VerticalAlignment="Top"/>
             <Label Content="Product Details" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="72,90,0,0" VerticalAlignment="Top"/>
             <Label Content="Product Name" HorizontalAlignment="Left" Margin="72,171,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="productNameTextbox" HorizontalAlignment="Left" Height="23" Margin="205,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="productNameTextbox" HorizontalAlignment="Left" Height="28" Margin="205,173,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Template="{StaticResource TextBoxBaseControlTemplate}"/>
             <Label Content="Product Category" HorizontalAlignment="Left" Margin="72,229,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="productCategoryTextbox" HorizontalAlignment="Left" Height="23" Margin="205,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="productCategoryTextbox" HorizontalAlignment="Left" Height="28" Margin="205,231,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Template="{StaticResource TextBoxBaseControlTemplate}"/>
             <Label Content="Product Price" HorizontalAlignment="Left" Margin="72,284,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="productPriceTextbox" HorizontalAlignment="Left" Height="22" Margin="205,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-            <Button x:Name="updateButton" Style="{StaticResource RoundedButton}" Content="Save Changes" HorizontalAlignment="Left" Margin="160,354,0,0" VerticalAlignment="Top" Width="92" Height="30" Click="updateButton_Click"/>
+            <TextBox x:Name="productPriceTextbox" HorizontalAlignment="Left" Height="28" Margin="205,286,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Template="{StaticResource TextBoxBaseControlTemplate}"/>
+            <Button x:Name="updateButton" Style="{StaticResource RoundedButton}" Content="Save Changes" HorizontalAlignment="Left" Margin="160,354,0,0" VerticalAlignment="Top" Width="110" Height="30" FontWeight="Bold" Click="updateButton_Click"/>
             <Button x:Name="addButton" Style="{StaticResource RoundedButton}" Content="Add" HorizontalAlignment="Left" Margin="453,406,0,0" VerticalAlignment="Top" Width="75" Click="addButton_Click" Height="30" FontSize="12" FontWeight="Bold"/>
             <Button x:Name="removeButton" Style="{StaticResource RoundedRemoveButton}" Content="Remove" HorizontalAlignment="Left" Margin="590,406,0,0" VerticalAlignment="Top" Width="75" Click="removeButton_Click" Height="30" FontSize="12" FontWeight="Bold"/>
-
-
-
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="15" Margin="10,10,0,0" VerticalAlignment="Top" Width="630" Cursor="Hand" MouseLeftButtonDown="DragWindow"/>
+            <Rectangle Fill="#d1e4fb" HorizontalAlignment="Left" Height="15" Margin="645,10,0,0" VerticalAlignment="Top" Width="125" Cursor="Hand" MouseLeftButtonDown="DragWindow"/>
+            <Ellipse Fill="Red" Grid.Row="0" Height="15" Width="15" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="15" MouseLeftButtonDown="CloseApp" Cursor="Hand"></Ellipse>
         </Grid>
     </Border>
 </Window>
+    

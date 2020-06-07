@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="products_bg.png" />
+    <Resource Include="login_bg.png" />
     <Content Include="StoreDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

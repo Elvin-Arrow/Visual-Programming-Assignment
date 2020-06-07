@@ -202,5 +202,34 @@ namespace Visual_Programming_Assignment
             // Refresh the ListBox
             setProducts();
         }
+
+        /// <summary>
+        /// Method to make the borderless window draggable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DragWindow(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        /// <summary>
+        /// Method to close the current window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseApp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
     }
 }

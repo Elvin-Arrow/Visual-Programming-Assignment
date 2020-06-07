@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Visual_Programming_Assignment"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" 
+        Height="450" 
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        >
+
+    <Border BorderBrush="Gray" BorderThickness="0.1" CornerRadius="15">
+        <Border.Background>
+            <ImageBrush ImageSource="login_bg.png" />
+        </Border.Background>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Ellipse Fill="Red" Grid.Row="0" Height="15" Width="15" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="15" MouseLeftButtonDown="CloseApp" Cursor="Hand"></Ellipse>
+
+            <Label Content="Username" Grid.Row="1" HorizontalAlignment="Left" Margin="436,41,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
+            <Label Content="Password" Grid.Row="1" HorizontalAlignment="Left" Margin="436,116,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
+            <TextBox x:Name="usernameTextBox" Grid.Row="1" Height="32" Margin="0,70,140,0" VerticalAlignment="Top" FontSize="14" Template="{StaticResource TextBoxBaseControlTemplate}" HorizontalAlignment="Right" Width="221"/>
+            <PasswordBox x:Name="passwordBox" Grid.Row="1" Height="32" Margin="0,145,140,0" VerticalAlignment="Top" FontSize="14" Template="{StaticResource PasswordBoxBaseControlTemplate}" HorizontalAlignment="Right" Width="221"/>
+            <Button Grid.Row="1" Content="Login" Margin="575,216,140,0" VerticalAlignment="Top" IsDefault="True" FontSize="14" Height="30" Cursor="Hand" Style="{DynamicResource RoundedButton}" Foreground="White" Click="LoginButton_Click" Grid.RowSpan="2"/>
+            <Rectangle HorizontalAlignment="Right" Height="20" RadiusY="9" RadiusX="9" Fill="White" VerticalAlignment="Top" Width="646" Cursor="Hand" MouseLeftButtonDown="DragWindow" Margin="0,10,144,0"/>
+            <Rectangle HorizontalAlignment="Left" Height="20" RadiusY="9" RadiusX="9" Fill="#d3e5fc" VerticalAlignment="Top" Width="104" Cursor="Hand" MouseLeftButtonDown="DragWindow" Margin="661,10,0,0"/>
+            
+
+
+
+
+        </Grid>
+    </Border>
+
 </Window>

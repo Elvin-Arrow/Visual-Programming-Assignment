@@ -28,5 +28,62 @@ namespace Visual_Programming_Assignment
             db = new StoreDBEntities();
 
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the username and password
+            User sessionUser = new User() 
+            { 
+                username = this.usernameTextBox.Text,
+                password = this.passwordBox.Password
+            };
+
+            // Authenticate the user credentials against the DB
+            var result = from user in db.Users
+                         where user.username == sessionUser.username && user.password == sessionUser.password
+                         select user;
+
+            // Fetch the results
+            User authenticatedUser = result.SingleOrDefault();
+
+            if (authenticatedUser != null)
+            {
+                ProductsWindow products = new ProductsWindow();
+                products.Show();
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Invalid user credentials, please enter valid user credentails and try again", "Authentication Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
+        /// Method to make the borderless window draggable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DragWindow(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        /// <summary>
+        /// Method to close the current window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseApp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
     }
 }
