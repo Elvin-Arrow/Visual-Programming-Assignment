@@ -5,34 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Visual_Programming_Assignment"
         mc:Ignorable="d"
-        Title="ProductsWindow" Height="450" Width="800">
+        Title="ProductsWindow"
+        Height="540" 
+        Width="780" 
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent">
+    <Border BorderBrush="Gray" BorderThickness="0.1" CornerRadius="15">
+        <Border.Background>
+            <ImageBrush ImageSource="products_bg.png" />
+        </Border.Background>
+        <Grid>
+            <ListBox x:Name="productsListBox" HorizontalAlignment="Left" Height="256" Margin="402,128,0,0" VerticalAlignment="Top" Width="310" SelectionChanged="productsListBox_SelectionChanged" ItemTemplate="{DynamicResource ProductTemplate}">
+                <ListBox.Resources>
+                    <DataTemplate x:Key="ProductTemplate">
+                        <Grid d:DesignWidth="300" d:DesignHeight="50">
+                            <Label x:Name="productName" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label x:Name="productCategory" Content="{Binding Category}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
+                            <Label x:Name="productPrice" Content="{Binding Path=Price, StringFormat='$: {0}'}" HorizontalAlignment="Stretch" Margin="250,0,1,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.Resources>
+            </ListBox>
+            <Label Content="Products" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="402,80,0,0" VerticalAlignment="Top"/>
+            <Label Content="Product Details" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="72,90,0,0" VerticalAlignment="Top"/>
+            <Label Content="Product Name" HorizontalAlignment="Left" Margin="72,171,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="productNameTextbox" HorizontalAlignment="Left" Height="23" Margin="205,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Product Category" HorizontalAlignment="Left" Margin="72,229,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="productCategoryTextbox" HorizontalAlignment="Left" Height="23" Margin="205,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Product Price" HorizontalAlignment="Left" Margin="72,284,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="productPriceTextbox" HorizontalAlignment="Left" Height="22" Margin="205,288,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="updateButton" Style="{StaticResource RoundedButton}" Content="Save Changes" HorizontalAlignment="Left" Margin="160,354,0,0" VerticalAlignment="Top" Width="92" Height="30" Click="updateButton_Click"/>
+            <Button x:Name="addButton" Style="{StaticResource RoundedButton}" Content="Add" HorizontalAlignment="Left" Margin="453,406,0,0" VerticalAlignment="Top" Width="75" Click="addButton_Click" Height="30" FontSize="12" FontWeight="Bold"/>
+            <Button x:Name="removeButton" Style="{StaticResource RoundedRemoveButton}" Content="Remove" HorizontalAlignment="Left" Margin="590,406,0,0" VerticalAlignment="Top" Width="75" Click="removeButton_Click" Height="30" FontSize="12" FontWeight="Bold"/>
 
 
-    <Grid>
-        <ListBox x:Name="productsListBox" HorizontalAlignment="Left" Height="256" Margin="22,87,0,0" VerticalAlignment="Top" Width="325" SelectionChanged="productsListBox_SelectionChanged" ItemTemplate="{DynamicResource ProductTemplate}">
-            <ListBox.Resources>
-                <DataTemplate x:Key="ProductTemplate">
-                    <Grid d:DesignWidth="300" d:DesignHeight="50">
-                        <Label x:Name="productName" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                        <Label x:Name="productCategory" Content="{Binding Category}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
-                        <Label x:Name="productPrice" Content="{Binding Path=Price, StringFormat='$: {0}'}" HorizontalAlignment="Stretch" Margin="250,0,1,0" VerticalAlignment="Top"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.Resources>
-        </ListBox>
-        <Label Content="Products" HorizontalAlignment="Left" Margin="22,56,0,0" VerticalAlignment="Top"/>
-        <Label Content="Product Details" HorizontalAlignment="Left" Margin="420,64,0,0" VerticalAlignment="Top"/>
-        <Label Content="Product Name" HorizontalAlignment="Left" Margin="420,111,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="productNameTextbox" HorizontalAlignment="Left" Height="23" Margin="559,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Product Category" HorizontalAlignment="Left" Margin="420,175,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="productCategoryTextbox" HorizontalAlignment="Left" Height="23" Margin="559,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Product Price" HorizontalAlignment="Left" Margin="420,245,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="productPriceTextbox" HorizontalAlignment="Left" Height="23" Margin="559,247,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="updateButton" Content="Save Changes" HorizontalAlignment="Left" Margin="511,292,0,0" VerticalAlignment="Top" Width="92" Height="30" Click="updateButton_Click"/>
-        <Button x:Name="addButton" Style="{StaticResource RoundedAddButtonTemplate}" Content="+" HorizontalAlignment="Left" Margin="25,348,0,0" VerticalAlignment="Top" Width="25" Click="addButton_Click" Height="25" FontSize="12" FontWeight="Bold"/>
-        <Button x:Name="removeButton" Style="{StaticResource RoundedRemoveButtonTemplate}" Content="x" HorizontalAlignment="Left" Margin="55,348,0,0" VerticalAlignment="Top" Width="25" Click="removeButton_Click" Height="25" FontSize="12" FontWeight="Bold"/>
 
-
-
-    </Grid>
+        </Grid>
+    </Border>
 </Window>
