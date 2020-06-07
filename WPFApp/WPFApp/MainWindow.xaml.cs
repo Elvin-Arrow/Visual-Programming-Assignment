@@ -37,5 +37,16 @@ namespace WPFApp
 
             }
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void DragWindow(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
     }
 }

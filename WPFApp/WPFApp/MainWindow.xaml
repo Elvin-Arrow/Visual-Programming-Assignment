@@ -87,7 +87,12 @@
                 <Label Content="Password" Grid.Row="1" HorizontalAlignment="Left" Margin="436,116,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
                 <TextBox Grid.Row="1" HorizontalAlignment="Left" Height="24" Margin="439,70,0,0" VerticalAlignment="Top" Width="221" FontSize="14"/>
                 <PasswordBox Grid.Row="1" HorizontalAlignment="Left" Height="24" Margin="439,145,0,0" VerticalAlignment="Top" Width="221" FontSize="14"/>
-                <Button Grid.Row="1" Content="Login" HorizontalAlignment="Left" Margin="575,216,0,0" VerticalAlignment="Top" Width="85" IsDefault="True" FontSize="14" Height="30" Cursor="Hand" Style="{DynamicResource RoundedButton}" Foreground="White"/>
+                <Button Grid.Row="1" Content="Login" HorizontalAlignment="Left" Margin="575,216,0,0" VerticalAlignment="Top" Width="85" IsDefault="True" FontSize="14" Height="30" Cursor="Hand" Style="{DynamicResource RoundedButton}" Foreground="White" Click="LoginButton_Click"/>
+                <Rectangle HorizontalAlignment="Left" Height="20" RadiusY="9" RadiusX="9" Fill="White"  VerticalAlignment="Top" Width="636" Cursor="Hand" MouseLeftButtonDown="DragWindow" Margin="0,10,0,0"/>
+                <Rectangle HorizontalAlignment="Left" Height="20" RadiusY="9" RadiusX="9" Fill="#d3e5fc"  VerticalAlignment="Top" Width="104" Cursor="Hand" MouseLeftButtonDown="DragWindow" Margin="641,10,0,0"/>
+
+
+
             </Grid>
         </Border>
     </Grid>
